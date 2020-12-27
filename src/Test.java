@@ -1,4 +1,3 @@
-import java.io.File;
 import java.io.InputStream;
 import java.util.Scanner;
 
@@ -18,11 +17,14 @@ public class Test {
 
             //File file=new File("C:\\Users\\Administrator\\IdeaProjects\\ConsoleShop\\src\\users.xlsx");
             InputStream in = Class.forName("Test").getResourceAsStream("/users.xlsx");//  /表示的就是classpath
-            ReadExcel readExcel = new ReadExcel();//创建对象
+            ReadUserExcel readExcel = new ReadUserExcel();//创建对象
             User users[] = readExcel.readExcel(in);
             for (int i = 0; i < users.length; i++) {
                 if (username.equals(users[i].getUsername()) && password.equals(users[i].getPassword())) {
-                    System.out.println("登录成功");
+                    /*
+                    显示商品的信息
+                     */
+
                     bool=false;
                     break;
                 } else {
