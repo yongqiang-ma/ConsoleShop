@@ -69,12 +69,30 @@ public class Test {
                         inProduct = Class.forName("Test").getResourceAsStream("/product.xlsx");
                         product = readProductExcel.getProductById(pId, inProduct);
                         System.out.println("要购买的商品价格：" + product.getPrice());
+                        /*
+                        数组模拟的购物车
+                         */
                         if(product!=null){
-                            carts[count++]=product;
+                            carts[count++]=product;//添加购物车
                         }
                     }else if(choose==2){
                         /*
                         查看购物车
+                        1、购物车是数组
+                        2、既然是数组，我们就可以用for循环来查看
+                         */
+                        System.out.println("当前购物车商品如下：");
+                        for (Product p : carts) {
+                            if(p!=null) {
+                                System.out.print(p.getpId());
+                                System.out.print("\t" + p.getpName());
+                                System.out.print("\t" + p.getPrice());
+                                System.out.println("\t" + p.getpDesc());
+                            }
+                        }
+                        /*
+                        按1结账
+                        按2继续购物
                          */
                     }
                     break;
