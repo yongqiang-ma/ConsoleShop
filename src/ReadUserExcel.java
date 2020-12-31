@@ -60,7 +60,6 @@ public class ReadUserExcel {
             case NUMERIC:
                 DecimalFormat df = new DecimalFormat("#");
                 value=df.format(cell.getNumericCellValue());
-                System.out.println("处理后的："+value);
                 break;
             case FORMULA:
                 value = cell.getCellFormula();
