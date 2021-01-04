@@ -58,7 +58,6 @@ public class ReadUserExcel {
                 break;
             case NUMERIC:
                 value = df.format(cell.getNumericCellValue());//double和一个空字符串相连接，最终得到字符串
-                System.out.println("转换后的："+value);
                 break;
             case FORMULA:
                 value = cell.getCellFormula();
