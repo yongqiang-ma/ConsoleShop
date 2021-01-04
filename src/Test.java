@@ -39,7 +39,12 @@ public class Test {
                         } else if (choose == 2) {
                             viewCarts();
                         } else if (choose == 3) {
-
+                            Order order=new Order();
+                            order.setUser(users[i]);
+                            order.setProducts(carts);
+                            /*
+                            统计每个商品的数量代码你去实现
+                             */
                         } else if (choose == 4) {
                             break;
                         }
