@@ -38,6 +38,8 @@ public class Test {
                             shopping(inProduct);
                         } else if (choose == 2) {
                             viewCarts();
+                        } else if (choose == 3) {
+
                         } else if (choose == 4) {
                             break;
                         }
