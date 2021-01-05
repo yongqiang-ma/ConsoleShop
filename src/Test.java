@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Test {
     static Product carts[] = new Product[3];//创建购物车（用数组模拟）
     static int count = 0;
+
     public static void main(String[] args) throws ClassNotFoundException {
         /*
         CTRL+ALT+L
@@ -26,32 +27,45 @@ public class Test {
             for (int i = 0; i < users.length; i++) {
                 if (username.equals(users[i].getUsername()) && password.equals(users[i].getPassword())) {
                     bool = false;
-                    shopping(sc);
-                    while(true) {
+                    while (true) {
                         System.out.println("查看购物车请按1");
-                        System.out.println("继续购物请按2");
+                        System.out.println("购物请按2");
                         System.out.println("结账请按3");
                         System.out.println("退出请按4");
                         int choose = sc.nextInt();
                         if (choose == 1) {
-                            for (Product product : carts) {
-                                if (product != null) {
-                                    System.out.print(product.getId());
-                                    System.out.print("\t" + product.getName());
-                                    System.out.print("\t\t" + product.getPrice());
-                                    System.out.println("\t\t" + product.getDesc());
-                                }
-                            }
+                            viewCarts();
                         } else if (choose == 2) {
                             shopping(sc);
-                        }else if(choose==4){
-                            break;
+                        } else if(choose==3){
+                            /*
+                            1、产生订单（必须有订单类）
+                            2、用POI创建Order.xlsx文件
+                            3、把购物车里的商品写入Order.xlsx文件
+                             */
+                            Order order=new Order();
+                            order.setUser(users[i]);
+                            //order.setProduct();
+                            //如何关联订单和商品
+                        } else if (choose == 4) {
+                            break;//最终导致循环结束，循环结束后，main方法结束（main线程），JavaVM也会结束
                         }
                     }
                     break;
                 } else {
                     System.out.println("登录失败");
                 }
+            }
+        }
+    }
+
+    public static void viewCarts() {
+        for (Product product : carts) {
+            if (product != null) {
+                System.out.print(product.getId());
+                System.out.print("\t" + product.getName());
+                System.out.print("\t\t" + product.getPrice());
+                System.out.println("\t\t" + product.getDesc());
             }
         }
     }
