@@ -8,9 +8,6 @@ public class Test {
     static int count = 0;
 
     public static void main(String[] args) throws ClassNotFoundException {
-        /*
-        CTRL+ALT+L
-         */
         boolean bool = true;
         while (bool) {
             System.out.println("请输入用户名：");
@@ -23,7 +20,7 @@ public class Test {
             //File file=new File("C:\\Users\\Administrator\\IdeaProjects\\ConsoleShop\\src\\users.xlsx");
             InputStream in = Class.forName("Test").getResourceAsStream("/users.xlsx");//  /表示的就是classpath
             ReadUserExcel readExcel = new ReadUserExcel();//创建对象
-            User users[] = readExcel.readExcel(in);
+            User users[] = readExcel.getAllUser(in);
             for (int i = 0; i < users.length; i++) {
                 if (username.equals(users[i].getUsername()) && password.equals(users[i].getPassword())) {
                     bool = false;
@@ -37,13 +34,13 @@ public class Test {
                             viewCarts();
                         } else if (choose == 2) {
                             shopping(sc);
-                        } else if(choose==3){
+                        } else if (choose == 3) {
                             /*
                             1、产生订单（必须有订单类）
                             2、用POI创建Order.xlsx文件
                             3、把购物车里的商品写入Order.xlsx文件
                              */
-                            Order order=new Order();
+                            Order order = new Order();
                             order.setUser(users[i]);
                             //order.setProduct();
                             //如何关联订单和商品
