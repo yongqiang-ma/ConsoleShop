@@ -55,6 +55,14 @@ public class CreateOrder {
                         //cell.setCellStyle(style);//…Ë÷√±≥æ∞…´
                     } else if (j == 1) {
                         cell.setCellValue(order.getProducts()[i].getId());
+                    }else if(j==2){
+                        cell.setCellValue(order.getAmmount()+1);
+                    }else if(j==3){
+                        cell.setCellValue(order.getProducts()[i].getPrice());
+                    } else if (j == 4) {
+                        cell.setCellValue(order.getProducts()[i].getPrice());
+                    } else if (j == 5) {
+                        cell.setCellValue(order.getOrderDate());
                     }
                 }
             }

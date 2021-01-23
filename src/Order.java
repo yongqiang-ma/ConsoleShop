@@ -1,10 +1,11 @@
 import java.sql.Date;
 
 public class Order {
+    public Object Order;
     /*
-    该有哪些属性？依据是什么？
-    依据：数据库有哪些字段，那么类就有哪些属性
-     */
+        该有哪些属性？依据是什么？
+        依据：数据库有哪些字段，那么类就有哪些属性
+         */
     private User user;
     private Product products[];
     private int ammount;
